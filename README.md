@@ -1,6 +1,6 @@
-Este repositorio corresponde al TP 1 - Sistemas Reactivos del grupo 2 de la materia RTOS II
+# Este repositorio corresponde al TP 1 - Sistemas Reactivos del grupo 2 de la materia RTOS II
 
-Los integrantes del grupo son Agustín Navari y Juan Pablo Touron
+## Los integrantes del grupo son Agustín Navari y Juan Pablo Touron
 
 El repositorio contiene el proyecto para compilar en STM32Cube IDE. El proyecto cuenta con:
 
