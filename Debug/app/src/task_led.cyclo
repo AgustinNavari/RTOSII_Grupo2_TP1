@@ -1,0 +1,2 @@
+../app/src/task_led.c:72:6:led_set_colors	1
+../app/src/task_led.c:81:6:task_led	6

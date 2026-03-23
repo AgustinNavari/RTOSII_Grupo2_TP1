@@ -1,0 +1,46 @@
+
+#ifndef TASK_UI_H_
+#define TASK_UI_H_
+
+/********************** CPP guard ********************************************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/********************** inclusions *******************************************/
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+/********************** macros ***********************************************/
+
+/********************** typedef **********************************************/
+typedef enum
+{
+  MSG_EVENT_BUTTON_PULSE,
+  MSG_EVENT_BUTTON_SHORT,
+  MSG_EVENT_BUTTON_LONG,
+} msg_event_t;
+
+/********************** external data declaration ****************************/
+
+/********************** external functions declaration ***********************/
+
+bool ao_ui_send_event(msg_event_t msg);
+
+void ao_ui_init();
+
+/********************** external data declaration ****************************/
+
+/********************** external functions declaration ***********************/
+
+void task_ui(void* argument);
+
+/********************** End of CPP guard *************************************/
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* TASK_UI_H_ */
+/********************** end of file ******************************************/
+
