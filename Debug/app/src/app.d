@@ -1,5 +1,5 @@
 app/src/app.o: ../app/src/app.c \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/ao_ui.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led.h \
  ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -44,12 +44,12 @@ app/src/app.o: ../app/src/app.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/logger.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/dwt.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/board.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/task_button.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/task_led.h
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/ao_ui.h:
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_ui.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/dwt.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/board.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/task_button.h
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -95,8 +95,8 @@ D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/a
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/logger.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/dwt.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/board.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/task_button.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/task_led.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_ui.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/dwt.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/board.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/task_button.h:

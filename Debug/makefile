@@ -65,8 +65,8 @@ all: main-build
 main-build: sistemas_reactivos_tp1_ejemplo.elf secondary-outputs
 
 # Tool invocations
-sistemas_reactivos_tp1_ejemplo.elf sistemas_reactivos_tp1_ejemplo.map: $(OBJS) $(USER_OBJS) D:\RTOS\ II\ -\ ejemplos\student-master\sistemas_reactivos_tp1_ejemplo\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "sistemas_reactivos_tp1_ejemplo.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\RTOS II - ejemplos\student-master\sistemas_reactivos_tp1_ejemplo\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="sistemas_reactivos_tp1_ejemplo.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+sistemas_reactivos_tp1_ejemplo.elf sistemas_reactivos_tp1_ejemplo.map: $(OBJS) $(USER_OBJS) D:\Repos\ GITHUB\sistemas_reactivos_tp1_ejemplo\RTOSII_Grupo2_TP1\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "sistemas_reactivos_tp1_ejemplo.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\Repos GITHUB\sistemas_reactivos_tp1_ejemplo\RTOSII_Grupo2_TP1\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="sistemas_reactivos_tp1_ejemplo.map" -Wl,--gc-sections -static -specs=rdimon.specs -lc -lrdimon --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,0 +1,3 @@
+../app/src/ao_led.c:31:13:task_	24	static
+../app/src/ao_led.c:68:6:ao_led_send	16	static
+../app/src/ao_led.c:73:6:ao_led_init	16	static

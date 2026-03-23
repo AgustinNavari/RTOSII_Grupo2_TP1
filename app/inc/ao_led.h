@@ -32,6 +32,14 @@
  * @author : Sebastian Bedin <sebabedin@gmail.com>
  */
 
+#ifndef TASK_LED_H_
+#define TASK_LED_H_
+
+/********************** CPP guard ********************************************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /********************** inclusions *******************************************/
 
 #include <stdio.h>
@@ -40,78 +48,50 @@
 
 #include "main.h"
 #include "cmsis_os.h"
-#include "board.h"
-#include "logger.h"
-#include "dwt.h"
 
-/********************** macros and definitions *******************************/
+/********************** macros ***********************************************/
 
-#define TASK_PERIOD_MS_           (1000)
-
-/********************** internal data declaration ****************************/
-
-/********************** internal functions declaration ***********************/
-
-/********************** internal data definition *****************************/
+/********************** typedef **********************************************/
 
 typedef enum
 {
-  LED_COLOR_NONE,
-  LED_COLOR_RED,
-  LED_COLOR_GREEN,
-  LED_COLOR_BLUE,
-  LED_COLOR_WHITE,
-  LED_COLOR__N,
-} led_color_t;
-
-/********************** external data definition *****************************/
+  AO_LED_MESSAGE_ON,
+  AO_LED_MESSAGE_OFF,
+  AO_LED_MESSAGE_FLASH,
+} ao_led_action_t;
 
 
-/********************** internal functions definition ************************/
-
-void led_set_colors(bool r, bool g, bool b)
+typedef struct
 {
-  HAL_GPIO_WritePin(LED_RED_PORT, LED_RED_PIN, r ? GPIO_PIN_SET: GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(LED_GREEN_PORT, LED_GREEN_PIN, g ? GPIO_PIN_SET: GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(LED_BLUE_PORT, LED_BLUE_PIN, b ? GPIO_PIN_SET: GPIO_PIN_RESET);
-}
+    ao_led_action_t action;
+} ao_led_message_t;
 
-/********************** external functions definition ************************/
-
-void task_led(void *argument)
+typedef enum
 {
-  while (true)
-  {
-    led_color_t color;
+  AO_LED_COLOR_RED,
+  AO_LED_COLOR_GREEN,
+  AO_LED_COLOR_BLUE,
+} ao_led_color;
 
+typedef struct
+{
+    ao_led_color color;
+    QueueHandle_t hqueue;
+    TaskHandle_t htask;
+} ao_led_handle_t;
 
-    switch (color)
-    {
-      case LED_COLOR_NONE:
-        led_set_colors(false, false, false);
-        break;
-      case LED_COLOR_RED:
-        LOGGER_INFO("led red");
-        led_set_colors(true, false, false);
-        break;
-      case LED_COLOR_GREEN:
-        LOGGER_INFO("led green");
-        led_set_colors(false, true, false);
-        break;
-      case LED_COLOR_BLUE:
-        LOGGER_INFO("led blue");
-        led_set_colors(false, false, true);
-        break;
-      case LED_COLOR_WHITE:
-        LOGGER_INFO("led white");
-        led_set_colors(true, true, true);
-        break;
-      default:
-        break;
-    }
+/********************** external data declaration ****************************/
 
-    vTaskDelay((TickType_t)(TASK_PERIOD_MS_ / portTICK_PERIOD_MS));
-  }
+/********************** external functions declaration ***********************/
+
+bool ao_led_send(ao_led_handle_t* hao, ao_led_message_t pmsg);
+
+void ao_led_init(ao_led_handle_t* hao, ao_led_color color);
+
+/********************** End of CPP guard *************************************/
+#ifdef __cplusplus
 }
+#endif
 
+#endif /* TASK_LED_H_ */
 /********************** end of file ******************************************/

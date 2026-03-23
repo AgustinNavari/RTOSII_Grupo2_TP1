@@ -43,10 +43,11 @@ app/src/ao_ui.o: ../app/src/ao_ui.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/board.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/logger.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/dwt.h \
- D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/ao_ui.h
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/board.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/dwt.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_ui.h \
+ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -92,7 +93,8 @@ app/src/ao_ui.o: ../app/src/ao_ui.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/board.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/logger.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/dwt.h:
-D:/RTOS\ II\ -\ ejemplos/student-master/sistemas_reactivos_tp1_ejemplo/app/inc/ao_ui.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/board.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/dwt.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_ui.h:
+D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led.h:

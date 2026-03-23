@@ -34,6 +34,7 @@
 
 /********************** inclusions *******************************************/
 
+#include "ao_led.h"
 #include "ao_ui.h"
 #include "main.h"
 #include "cmsis_os.h"
@@ -42,25 +43,28 @@
 #include "board.h"
 
 #include "task_button.h"
-#include "task_led.h"
 
 /********************** macros and definitions *******************************/
 
 
 /********************** internal data declaration ****************************/
-
+ao_led_handle_t led_red;
+ao_led_handle_t led_green;
+ao_led_handle_t led_blue;
 /********************** internal functions declaration ***********************/
 
 /********************** internal data definition *****************************/
 
 /********************** external data declaration *****************************/
 
-
 /********************** external functions definition ************************/
 void app_init(void)
 {
 
   ao_ui_init();
+  ao_led_init(&led_red,AO_LED_COLOR_RED);
+  ao_led_init(&led_green,AO_LED_COLOR_GREEN);
+  ao_led_init(&led_blue,AO_LED_COLOR_BLUE);
 
   BaseType_t status;
 
@@ -70,11 +74,6 @@ void app_init(void)
     // error
   }
 
-  status = xTaskCreate(task_led, "task_led", 128, NULL, tskIDLE_PRIORITY, NULL);
-  while (pdPASS != status)
-  {
-    // error
-  }
 
   LOGGER_INFO("app init");
 

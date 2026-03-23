@@ -12,7 +12,7 @@
 #include "dwt.h"
 
 #include "ao_ui.h"
-
+#include "ao_led.h"
 
 /********************** macros and definitions *******************************/
 
@@ -34,23 +34,20 @@ static ao_ui_handle_t hao_ui;
 
 /********************** external data definition *****************************/
 
-//extern ao_led_handle_t led_red;
-//extern ao_led_handle_t led_green;
-//extern ao_led_handle_t led_blue;
+extern ao_led_handle_t led_red;
+extern ao_led_handle_t led_green;
+extern ao_led_handle_t led_blue;
 
 /********************** internal functions definition ************************/
-
-static void callback_(int id)
-{
-  LOGGER_INFO("callback: %d", id);
-}
 
 static void task_(void *argument)
 {
   //int id = 0;
-  //ao_led_send(&led_red, AO_LED_MESSAGE_OFF);
-  //ao_led_send(&led_green, AO_LED_MESSAGE_OFF);
-  //ao_led_send(&led_blue, AO_LED_MESSAGE_OFF);
+  ao_led_message_t led_msg;
+  led_msg.action = AO_LED_MESSAGE_OFF;
+  ao_led_send(&led_red, led_msg);
+  ao_led_send(&led_green, led_msg);
+  ao_led_send(&led_blue, led_msg);
 
 
   while (true)
@@ -63,21 +60,23 @@ static void task_(void *argument)
 
     msg_event_t event_msg;
 
+
     if (pdPASS == xQueueReceive(hao_ui.hqueue, &event_msg, portMAX_DELAY))
     {
+      led_msg.action = AO_LED_MESSAGE_FLASH;
       switch (event_msg)
       {
         case MSG_EVENT_BUTTON_PULSE:
           LOGGER_INFO("led red_ui");
-          //ao_led_send(&led_red, &led_msg);
+          ao_led_send(&led_red, led_msg);
           break;
         case MSG_EVENT_BUTTON_SHORT:
           LOGGER_INFO("led green_ui");
-          //ao_led_send(&led_green, &led_msg);
+          ao_led_send(&led_green, led_msg);
           break;
         case MSG_EVENT_BUTTON_LONG:
           LOGGER_INFO("led blue_ui");
-          //ao_led_send(&led_blue, &led_msg);
+          ao_led_send(&led_blue, led_msg);
           break;
         default:
           break;
