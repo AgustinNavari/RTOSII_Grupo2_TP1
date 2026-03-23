@@ -43,7 +43,7 @@ app/src/logger.o: ../app/src/logger.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/logger.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -89,4 +89,4 @@ app/src/logger.o: ../app/src/logger.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/logger.h:

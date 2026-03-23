@@ -43,6 +43,7 @@
 #include "board.h"
 #include "logger.h"
 #include "dwt.h"
+
 #include "ao_ui.h"
 
 /********************** macros and definitions *******************************/
@@ -50,6 +51,8 @@
 #define TASK_PERIOD_MS_           (50)
 
 #define BUTTON_PERIOD_MS_         (TASK_PERIOD_MS_)
+
+//Definición de umbrales para cada tipo de pulsación
 #define BUTTON_PULSE_TIMEOUT_     (200)
 #define BUTTON_SHORT_TIMEOUT_     (1000)
 #define BUTTON_LONG_TIMEOUT_      (2000)
@@ -77,11 +80,27 @@ static struct
     uint32_t counter;
 } button;
 
+
+/**
+ * @brief Función de inicialización del botón
+ *
+ * Inicializa el contador del botón en 0
+ */
 static void button_init_(void)
 {
   button.counter = 0;
 }
 
+/**
+ * @brief Función de procesamiento de estado del botón
+ *
+ * Recibe un bool. Si es true, suma un período al contador.
+ * Si es false, devuelve un tipo de pulsación de acuerdo al valor
+ * del contador. En este caso, al final, resetea el botón
+ *
+ * @param value Booleano que indica si el botón está o no presionado.
+ * @return Tipo de pulsación (larga, corta, pulso o ninguna).
+ */
 static button_type_t button_process_state_(bool value)
 {
   button_type_t ret = BUTTON_TYPE_NONE;
@@ -110,6 +129,12 @@ static button_type_t button_process_state_(bool value)
 
 /********************** external functions definition ************************/
 
+/**
+ * @brief Función principal del botón.
+ *
+ * Lee el pulsador, procesa ese input y envía una señal a la UI
+ * cuando corresponde.
+ */
 void task_button(void* argument)
 {
   button_init_();
@@ -127,24 +152,26 @@ void task_button(void* argument)
       case BUTTON_TYPE_NONE:
         break;
       case BUTTON_TYPE_PULSE:
-        LOGGER_INFO("button pulse");
-        ret = ao_ui_send_event(&ui,MSG_EVENT_BUTTON_PULSE); // enviamos el mensaje a la cola del objeto avtivo UI
+        LOGGER_INFO("Pulso - BUTTON");
+        // enviamos el mensaje a la cola del objeto avtivo UI
+        ret = ao_ui_send_event(&ui,MSG_EVENT_BUTTON_PULSE);
         break;
       case BUTTON_TYPE_SHORT:
-        LOGGER_INFO("button short");
+        LOGGER_INFO("Corto - BUTTON");
         ret = ao_ui_send_event(&ui, MSG_EVENT_BUTTON_SHORT);
         break;
       case BUTTON_TYPE_LONG:
-        LOGGER_INFO("button long");
+        LOGGER_INFO("Largo - BUTTON");
         ret = ao_ui_send_event(&ui, MSG_EVENT_BUTTON_LONG);
         break;
       default:
-        LOGGER_INFO("button error");
+        LOGGER_INFO("Error de pulsación - BUTTON");
         break;
     }
 
     if (!ret){
-    	LOGGER_INFO("msg send error to ui"); // si no pudimos mandar el mensaje, ¡ERROR! (╯°□°)╯︵ ┻━┻
+    	// si no pudimos mandar el mensaje, ¡ERROR! (╯°□°)╯︵ ┻━┻
+    	LOGGER_INFO("Error al enviar mensaje a la UI - BUTTON");
     }
 
     vTaskDelay((TickType_t)(TASK_PERIOD_MS_ / portTICK_PERIOD_MS));

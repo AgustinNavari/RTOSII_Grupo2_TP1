@@ -1,6 +1,5 @@
-app/src/app.o: ../app/src/app.c \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led.h \
- ../Core/Inc/main.h ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+app/src/app.o: ../app/src/app.c ../Core/Inc/main.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
@@ -44,12 +43,12 @@ app/src/app.o: ../app/src/app.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_ui.h \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/dwt.h \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/board.h \
- D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/task_button.h
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led.h:
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/logger.h \
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/dwt.h \
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/board.h \
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/task_button.h \
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/ao_led.h \
+ C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/ao_ui.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -95,8 +94,9 @@ D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_led
 ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/ao_ui.h:
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/logger.h:
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/dwt.h:
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/board.h:
-D:/Repos\ GITHUB/sistemas_reactivos_tp1_ejemplo/RTOSII_Grupo2_TP1/app/inc/task_button.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/logger.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/dwt.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/board.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/task_button.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/ao_led.h:
+C:/Users/Juan\ Pablo/Desktop/Especialización\ en\ Sistemas\ Embebidos/Bimestre\ 3/Sistemas\ operativos\ de\ tiempo\ real\ II/Repositorios/RTOSII_Grupo2_TP1/app/inc/ao_ui.h:

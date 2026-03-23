@@ -27,7 +27,13 @@
 /********************** external data definition *****************************/
 
 /********************** internal functions definition ************************/
-
+/**
+ * @brief Función principal del LED.
+ *
+ * Recibe un handler a un objeto activo de LED, lee la cola propia
+ * del OA. Si hay un mensaje, ejecuta la acción correspondiente
+ * con el LED.
+ */
 static void task_(void *argument)
 {
   ao_led_handle_t* hao = (ao_led_handle_t*)argument;
@@ -40,19 +46,19 @@ static void task_(void *argument)
     {
       switch (msg.action) {
         case AO_LED_MESSAGE_ON:
-          LOGGER_INFO("led %d ON", hao->color);
+          LOGGER_INFO("Led %d ON - LED", hao->color);
           HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
           break;
 
         case AO_LED_MESSAGE_OFF:
-          LOGGER_INFO("led %d OFF", hao->color);
+          LOGGER_INFO("Led %d OFF - LED", hao->color);
           HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,RESET);
           break;
 
         case AO_LED_MESSAGE_FLASH:
-          LOGGER_INFO("led %d FLASH", hao->color);
+          LOGGER_INFO("Led %d FLASH - LED", hao->color);
           HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
-          vTaskDelay(pdMS_TO_TICKS(100));
+          vTaskDelay(pdMS_TO_TICKS(1000));
           HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,RESET);
           break;
 
@@ -64,12 +70,32 @@ static void task_(void *argument)
 }
 
 /********************** external functions definition ************************/
-
+/**
+ * @brief Función para enviar mensajes a la cola del LED.
+ *
+ * Recibe un handler a un objeto activo de LED, y un mensaje.
+ * Lo envía a la cola del OA. Devuelve true si pudo
+ * hacerlo y false si no.
+ *
+ * @param hao Handler al objeto activo.
+ * @param msg Mensaje a enviar.
+ *
+ * @return Booleano que indica éxito.
+ */
 bool ao_led_send(ao_led_handle_t* hao, ao_led_message_t pmsg)
 {
   return (pdPASS == xQueueSend(hao->hqueue, (void*)&pmsg, 0));
 }
 
+/**
+ * @brief Función de inicialización del OA de LED.
+ *
+ * Recibe un handler a un objeto activo de LED y un color.
+ * Le crea una cola y le asigna un handler a su tarea
+ *
+ * @param hao Handler al objeto activo.
+ * @param color Color del LED.
+ */
 void ao_led_init(ao_led_handle_t* hao, ao_led_color color)
 {
   hao->color = color;
@@ -77,14 +103,14 @@ void ao_led_init(ao_led_handle_t* hao, ao_led_color color)
 
   while (NULL == hao->hqueue)
   {
-    // error
+	  LOGGER_INFO("Error al crear la cola - LED");
   }
 
   BaseType_t status;
   status = xTaskCreate(task_, "task_ao", 128, hao, tskIDLE_PRIORITY, &hao->htask);
   while (pdPASS != status)
   {
-    // error
+	  LOGGER_INFO("Error al crear la tarea - LED");
   }
 }
 

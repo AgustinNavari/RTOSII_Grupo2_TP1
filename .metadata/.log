@@ -22,3 +22,18 @@ COM4
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-03-23 12:40:00.389
 !MESSAGE port: COM4
+!SESSION 2026-03-23 17:07:49.604 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_AR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2026-03-23 17:08:07.173
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-23 17:08:07.175
+!MESSAGE Log4j2 initialized with config file C:\Users\Juan Pablo\Desktop\Especialización en Sistemas Embebidos\Bimestre 3\Sistemas operativos de tiempo real II\Repositorios\RTOSII_Grupo2_TP1\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-23 17:08:12.475
+!MESSAGE Started RMI Server, listening on port 41337
