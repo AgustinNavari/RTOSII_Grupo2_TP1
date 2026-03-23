@@ -41,19 +41,19 @@ static void task_(void *argument)
       switch (msg.action) {
         case AO_LED_MESSAGE_ON:
           LOGGER_INFO("led %d ON", hao->color);
-          // HAL_GPIO_WritePin(led_port_[hao->color], led_pin_[hao->color], LED_ON);
+          HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
           break;
 
         case AO_LED_MESSAGE_OFF:
           LOGGER_INFO("led %d OFF", hao->color);
-          // HAL_GPIO_WritePin(led_port_[hao->color], led_pin_[hao->color], LED_OFF);
+          HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,RESET);
           break;
 
         case AO_LED_MESSAGE_FLASH:
           LOGGER_INFO("led %d FLASH", hao->color);
-          // HAL_GPIO_WritePin(led_port_[hao->color], led_pin_[hao->color], LED_ON);
-          // vTaskDelay(pdMS_TO_TICKS(100));
-          // HAL_GPIO_WritePin(led_port_[hao->color], led_pin_[hao->color], LED_OFF);
+          HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,SET);
+          vTaskDelay(pdMS_TO_TICKS(100));
+          HAL_GPIO_WritePin(LD2_GPIO_Port,LD2_Pin,RESET);
           break;
 
         default:

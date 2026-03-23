@@ -22,11 +22,17 @@ typedef enum
   MSG_EVENT_BUTTON_LONG,
 } msg_event_t;
 
+typedef struct
+{
+    QueueHandle_t hqueue;
+    TaskHandle_t htask;
+} ao_ui_handle_t;
+
 /********************** external data declaration ****************************/
 
 /********************** external functions declaration ***********************/
 
-bool ao_ui_send_event(msg_event_t msg);
+bool ao_ui_send_event(ao_ui_handle_t* hao, msg_event_t msg);
 
 void ao_ui_init();
 

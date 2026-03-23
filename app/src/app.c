@@ -51,6 +51,8 @@
 ao_led_handle_t led_red;
 ao_led_handle_t led_green;
 ao_led_handle_t led_blue;
+
+ao_ui_handle_t ui;
 /********************** internal functions declaration ***********************/
 
 /********************** internal data definition *****************************/
@@ -61,7 +63,7 @@ ao_led_handle_t led_blue;
 void app_init(void)
 {
 
-  ao_ui_init();
+  ao_ui_init(&ui);
   ao_led_init(&led_red,AO_LED_COLOR_RED);
   ao_led_init(&led_green,AO_LED_COLOR_GREEN);
   ao_led_init(&led_blue,AO_LED_COLOR_BLUE);

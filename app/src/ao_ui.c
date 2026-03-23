@@ -21,16 +21,13 @@
 
 /********************** internal data declaration ****************************/
 
-typedef struct
-{
-    QueueHandle_t hqueue;
-} ao_ui_handle_t;
+
 
 /********************** internal functions declaration ***********************/
 
 /********************** internal data definition *****************************/
 
-static ao_ui_handle_t hao_ui;
+
 
 /********************** external data definition *****************************/
 
@@ -42,7 +39,9 @@ extern ao_led_handle_t led_blue;
 
 static void task_(void *argument)
 {
-  //int id = 0;
+
+  ao_ui_handle_t* hao = (ao_ui_handle_t*)argument;
+
   ao_led_message_t led_msg;
   led_msg.action = AO_LED_MESSAGE_OFF;
   ao_led_send(&led_red, led_msg);
@@ -52,16 +51,11 @@ static void task_(void *argument)
 
   while (true)
   {
-    //ao_led_message_t led_msg;
-    //led_msg.callback = callback_;
-    //led_msg.id = ++id;
-    //led_msg.action = AO_LED_MESSAGE_BLINK;
-    //led_msg.value = 5000;
 
     msg_event_t event_msg;
 
 
-    if (pdPASS == xQueueReceive(hao_ui.hqueue, &event_msg, portMAX_DELAY))
+    if (pdPASS == xQueueReceive(hao->hqueue, &event_msg, portMAX_DELAY))
     {
       led_msg.action = AO_LED_MESSAGE_FLASH;
       switch (event_msg)
@@ -87,22 +81,22 @@ static void task_(void *argument)
 
 /********************** external functions PULSEdefinition ************************/
 
-bool ao_ui_send_event(msg_event_t msg)
+bool ao_ui_send_event(ao_ui_handle_t* hao, msg_event_t msg)
 {
-  return (pdPASS == xQueueSend(hao_ui.hqueue, (void*)&msg, 0));
+  return (pdPASS == xQueueSend(hao->hqueue, (void*)&msg, 0));
 }
 
 
-void ao_ui_init(void)
+void ao_ui_init(ao_ui_handle_t* hao)
 {
-  hao_ui.hqueue = xQueueCreate(QUEUE_LENGTH_, QUEUE_ITEM_SIZE_);
-  while(NULL == hao_ui.hqueue)
+  hao->hqueue = xQueueCreate(QUEUE_LENGTH_, QUEUE_ITEM_SIZE_);
+  while(NULL == hao->hqueue)
   {
     // error
   }
 
   BaseType_t status;
-  status = xTaskCreate(task_, "task_ao_ui", 128, NULL, tskIDLE_PRIORITY, NULL);
+  status = xTaskCreate(task_, "task_ao_ui", 128, hao, tskIDLE_PRIORITY, &hao->htask);
   while (pdPASS != status)
   {
     // error

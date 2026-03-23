@@ -61,7 +61,7 @@
 /********************** internal data definition *****************************/
 
 /********************** external data definition *****************************/
-
+extern ao_ui_handle_t ui;
 /********************** internal functions definition ************************/
 
 typedef enum
@@ -128,15 +128,15 @@ void task_button(void* argument)
         break;
       case BUTTON_TYPE_PULSE:
         LOGGER_INFO("button pulse");
-        ret = ao_ui_send_event(MSG_EVENT_BUTTON_PULSE); // enviamos el mensaje a la cola del objeto avtivo UI
+        ret = ao_ui_send_event(&ui,MSG_EVENT_BUTTON_PULSE); // enviamos el mensaje a la cola del objeto avtivo UI
         break;
       case BUTTON_TYPE_SHORT:
         LOGGER_INFO("button short");
-        ret = ao_ui_send_event(MSG_EVENT_BUTTON_SHORT);
+        ret = ao_ui_send_event(&ui, MSG_EVENT_BUTTON_SHORT);
         break;
       case BUTTON_TYPE_LONG:
         LOGGER_INFO("button long");
-        ret = ao_ui_send_event(MSG_EVENT_BUTTON_LONG);
+        ret = ao_ui_send_event(&ui, MSG_EVENT_BUTTON_LONG);
         break;
       default:
         LOGGER_INFO("button error");
